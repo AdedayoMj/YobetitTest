@@ -12,7 +12,8 @@ const {
   SET_CURRENT_USER,
   USER_LOADING,
   USER_CREATED,
-  GET_ALL
+  GET_ALL,
+  GET_BY_COUNTRY
 } = constants;
 
 // Register User
@@ -91,10 +92,8 @@ export const logoutUser = () => dispatch => {
   dispatch(setCurrentUser({}));
 };
 
-
-// Get all Countries 
+// Get all Countries
 export const getAllCountries = () => dispatch => {
-
   axios
     .post("http://localhost:5000/api/AllCountries")
     .then(res => {
@@ -106,12 +105,22 @@ export const getAllCountries = () => dispatch => {
 
       //
     })
-    .catch(err =>
-     console.log(err)
-     
-    );
+    .catch(err => console.log(err));
 };
+export const getByCountry = userData => dispatch => {
+  axios
+    .post("http://localhost:5000/api/CountryByName", userData)
+    .then(res => {
+      dispatch({
+        type: GET_BY_COUNTRY,
+        payload: res.data
+      });
+      // re-direct to login on successful register
 
+      //
+    })
+    .catch(err => console.log(err));
+};
 
 //===========================
 //Actions handler
@@ -166,6 +175,13 @@ function handleAllCountries(state, action) {
     }
   });
 }
+function handleGetByCountry(state, action) {
+  return update(state, {
+    country: {
+      $set: action.payload.data
+    }
+  });
+}
 
 const ACTION_HANDLERS = {
   LOGIN_ERRORS: handleLoginError,
@@ -173,7 +189,8 @@ const ACTION_HANDLERS = {
   SET_CURRENT_USER: handleCurrentUser,
   USER_LOADING: handleDriverLoading,
   USER_CREATED: handleDriverCreation,
-  GET_ALL:handleAllCountries
+  GET_ALL: handleAllCountries,
+  GET_BY_COUNTRY: handleGetByCountry
 };
 
 const initialState = {

@@ -4,16 +4,16 @@ import Navbar from "./components/Main/components/Navbar";
 import HomePage from "./components/Main/components/HomePage";
 import SignIn from "./components/Main/components/SignIn";
 import SignUp from "./components/Main/components/SignUp";
-import ErrorPage from './components/Main/components/ErrorPage'
-import PrivateRoute from './RouteProtected'
+import ErrorPage from "./components/Main/components/ErrorPage";
+import PrivateRoute from "./RouteProtected";
 
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./components/Main/modules/auth";
-import store from './store/createStore'
+import store from "./store/createStore";
 
-import AllCountriesArray from './components/RestCountries/AllCountriesArray'
-
+import AllCountriesArray from "./components/RestCountries/AllCountriesArray";
+import SearchByName from "./components/RestCountries/SearchByName";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -24,7 +24,7 @@ if (localStorage.jwtToken) {
   const decoded = jwt_decode(token);
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
-// Check for expired token
+  // Check for expired token
   const currentTime = Date.now() / 1000; // to get in milliseconds
   if (decoded.exp < currentTime) {
     // Logout user
@@ -33,7 +33,6 @@ if (localStorage.jwtToken) {
     window.location.href = "./signin";
   }
 }
-
 
 export default class App extends Component {
   render() {
@@ -46,9 +45,9 @@ export default class App extends Component {
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
             <Route path="/all-countries" component={AllCountriesArray} />
-            <Route component={ErrorPage}/>
+            <Route path="/search" component={SearchByName} />
+            <Route component={ErrorPage} />
           </Switch>
-
         </div>
       </Router>
     );

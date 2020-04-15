@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import Loading from './Loading'
+import Loading from "./Loading";
 import { getAllCountries } from "../../Main/modules/auth";
 import "./AllCountriesArray.css";
 
@@ -34,7 +33,7 @@ class AllCountriesArray extends Component {
     setTimeout(() => {
       this.handleLoadingState(false);
       this.props.getAllCountries();
-    }, 2000);
+    }, 3000);
   }
 
   handleSearch = async e => {
@@ -46,8 +45,8 @@ class AllCountriesArray extends Component {
     const { search, isloading } = this.state;
     const listCountries = allCountries.map((country, index) => {
       return (
-        <div className="col s8 m4">
-          <div className="card alignCard" key={`${country.name}-${index}`}>
+        <div className="col s12 m6">
+          <div className="card" key={`${country.name}-${index}`}>
             <div className="card-image ">
               <img className="imgheight" src={country.flag} alt="flag images" />
             </div>
@@ -102,42 +101,30 @@ class AllCountriesArray extends Component {
         );
       });
 
-    if (isloading){
-        return (
-            <div className="container center">
-            {isloading && <Loading message="Loading ..."/> || null}
-     </div>
-        )
-    }else{
-      return (
-        <div className="home">
-        <form className='center' onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              placeholder="Search country"
-              value={search}
-              onChange={this.handleSearch}
-              id="search"
-            />
-          </form>
-         
-        
-        {(search.length === 0) ?
+    return (
+      <div className="home">
+        <form className="center" onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            placeholder="Search country"
+            value={search}
+            onChange={this.handleSearch}
+            id="search"
+          />
+        </form>
 
-   
-            <div className="row">
-            {listCountries}
+        {search.length === 0 ? (
+          <div>
+            <div className="container center">
+              {isloading && <Loading message="Loading ..." />}
             </div>
-    
-            :
-            <div className="row">
-            {SearchArray}
-            </div>
-        }
-        
-        </div>
-      )
-    }
+            <div className="row">{listCountries}</div>
+          </div>
+        ) : (
+          <div className="row">{SearchArray}</div>
+        )}
+      </div>
+    );
   }
 }
 

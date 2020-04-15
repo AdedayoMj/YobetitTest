@@ -1,0 +1,18 @@
+
+.home{
+    display: absolute;
+    margin-top: 40px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+.alignCard{
+    height: 37em;
+    width: 30em;
+}
+.imgheight{
+    height: 17em;
+}
+.nSize{
+ font-size: 25px;
+}
+
