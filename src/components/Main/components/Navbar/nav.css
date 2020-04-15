@@ -1,0 +1,70 @@
+.text-logo {
+    font-weight: bold;
+    background-color: tomato;
+}
+
+.logo {
+    font-weight: bold;
+    color: white;
+}
+
+.btn-a {
+    height: 35px;
+    width: 200px;
+    border-color: aqua;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-r {
+    height: 35px;
+    width: 200px;
+    border-color: lightgreen;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-a:hover {
+    background-color: aqua;
+    color: red;
+}
+
+.btn-r:hover {
+    background-color: green;
+    color: white;
+}
+
+.btn-active {
+    height: 35px;
+    width: 200px;
+    border-color: green;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-active:hover {
+    background-color: green;
+    color: white;
+}
+
+.btn-activer {
+    height: 35px;
+    width: 200px;
+    border-color: red;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-activer:hover {
+    background-color: red;
+    color: white;
+}
+.imageContainer{
+    width:50;
+    align-items : "center";
+    justify-content: "center";
+}
