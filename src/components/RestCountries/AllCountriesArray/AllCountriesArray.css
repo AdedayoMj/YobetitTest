@@ -1,9 +1,7 @@
 
-.home{
-    display: absolute;
-    margin-top: 40px;
-    margin-left: 100px;
-    margin-right: 100px;
+.marg{
+
+margin-right: 320px !important;
 }
 .alignCard{
     height: 30em;
@@ -12,16 +10,23 @@
     height: 12em;
 }
 .nSize{
- font-size: 25px;
+ font-size: 23px;
 }
 li {
     align-items: center;
 }
 
-.get-all {
-    align-content: center !important;
-}
-
 input {
     width: 30em !important;
 }
+@media screen and (max-width: 850px) {
+        input {
+            width: 20em !important;
+        }
+        .imgheight{
+            height: 8em;
+        }
+        .marg{
+            margin-left: 65px !important;
+            }
+        }

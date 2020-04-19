@@ -3,20 +3,21 @@ import { Link, withRouter } from "react-router-dom";
 import SignedInLinks from "../SignedInLinks";
 import SignedOutLinks from "../SignedOutLinks";
 import "./nav.css";
-import { logoutUser,loginUser } from "../../modules/auth";
+import { logoutUser, loginUser } from "../../modules/auth";
 import { connect } from "react-redux";
 
 class Navbar extends Component {
-    componentDidMount(){
-    this.props.loginUser()
+  componentDidMount() {
+    this.props.loginUser();
   }
   render() {
-
     const links = !this.props.isAuthenticated ? (
       <SignedOutLinks />
     ) : (
-      <SignedInLinks SignOut={() => this.props.logoutUser()}
-      user={this.props.user} />
+      <SignedInLinks
+        SignOut={() => this.props.logoutUser()}
+        user={this.props.user}
+      />
     );
     return (
       <nav className="nav-wrapper black ">
@@ -24,10 +25,7 @@ class Navbar extends Component {
           <Link to="/" className="brand-logo col s1 m15">
             <span className="logo">YOBETIT</span>
           </Link>
-          <div >
-          {links}
-          </div>
-         
+          <div>{links}</div>
         </div>
       </nav>
     );
@@ -37,7 +35,7 @@ class Navbar extends Component {
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
   loginError: state.auth.loginError,
-  user:state.auth.user
+  user: state.auth.user
 });
 const mapActionCreators = {
   logoutUser,

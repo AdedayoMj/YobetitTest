@@ -94,6 +94,8 @@ export class SignUp extends Component {
               />
               <span className="red-text">{signupError.password}</span>
             </div>
+            </div>
+            <div className="row">
             <div className="input-field col s12 m6">
               <label htmlFor="password2">Confirm Password</label>
               <input

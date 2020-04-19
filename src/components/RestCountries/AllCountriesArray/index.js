@@ -33,7 +33,7 @@ class AllCountriesArray extends Component {
     setTimeout(() => {
       this.handleLoadingState(false);
       this.props.getAllCountries();
-    }, 3000);
+    }, 2000);
   }
 
   handleSearch = async e => {
@@ -46,7 +46,7 @@ class AllCountriesArray extends Component {
     const listCountries = allCountries.map((country, index) => {
       return (
         <div className="col s12 m6">
-          <div className="card" key={`${country.name}-${index}`}>
+          <div className="card alignCard" key={`${country.name}-${index}`}>
             <div className="card-image ">
               <img className="imgheight" src={country.flag} alt="flag images" />
             </div>
@@ -73,7 +73,8 @@ class AllCountriesArray extends Component {
       .filter(searchingFor(search))
       .map((country, index) => {
         return (
-          <div className="col s8 m4">
+          
+          <div className="col s12 m6">
             <div className="card alignCard" key={`${country.name}-${index}`}>
               <div className="card-image ">
                 <img
@@ -102,7 +103,8 @@ class AllCountriesArray extends Component {
       });
 
     return (
-      <div className="home">
+      <div className="conatiner">
+      <h5 className="grey-text text-darken-3 center">ALL COUNTRIES</h5>
         <form className="center" onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -118,10 +120,10 @@ class AllCountriesArray extends Component {
             <div className="container center">
               {isloading && <Loading message="Loading ..." />}
             </div>
-            <div className="row">{listCountries}</div>
+            <div className="row marg">{!isloading && listCountries}</div>
           </div>
         ) : (
-          <div className="row">{SearchArray}</div>
+          <div className="row marg">{SearchArray}</div>
         )}
       </div>
     );

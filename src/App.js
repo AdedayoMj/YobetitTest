@@ -11,6 +11,8 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./components/Main/modules/auth";
 import store from "./store/createStore";
+import Spinner from './components/SlotMachine/Spinner'
+
 
 import AllCountriesArray from "./components/RestCountries/AllCountriesArray";
 import SearchByName from "./components/RestCountries/SearchByName";
@@ -46,6 +48,7 @@ export default class App extends Component {
             <Route path="/signup" component={SignUp} />
             <Route path="/all-countries" component={AllCountriesArray} />
             <Route path="/search" component={SearchByName} />
+            <Route path="/slot" component={Spinner} />
             <Route component={ErrorPage} />
           </Switch>
         </div>

@@ -15,4 +15,10 @@
 .nSize{
  font-size: 25px;
 }
-
+@media screen and (max-width: 600px) {
+    .alignCard{
+        width: 20em !important;
+        height: 33em !important;
+        margin-left: 2em !important;
+    }
+}

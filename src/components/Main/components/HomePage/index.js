@@ -10,33 +10,34 @@ export default class index extends Component {
     return (
       <div className="home">
         <div className="row">
-          <div className="col s8 m4">
-            <div className="card ">
+          <div className="col s8 m4 Merg">
+            <div className="card  ">
               <div className="card-image">
                 <img src={img1} alt="images of flags" />
               </div>
               <div className="card-content">
-              <p><strong>SEARCH BY NAME</strong></p>
                 <p>
-                  Simple search form that select countries by
-                  country name.
+                  <strong>SEARCH BY NAME</strong>
                 </p>
+                <p>Simple search form that select countries by country name.</p>
               </div>
               <div className="card-action">
-              <Link to="/search">Enter</Link>
+                <Link to="/search">Enter</Link>
               </div>
             </div>
           </div>
 
- <div className="col s8 m4">
-            <div className="card">
+          <div className="col s8 m4 Merg">
+            <div className="card ">
               <div className="card-image">
                 <img src={img2} alt="images of flags" />
               </div>
               <div className="card-content">
-              <p><strong>ALL COUNTRIES</strong></p>
                 <p>
-                  A simple function that return all list of countries the array
+                  <strong>ALL COUNTRIES</strong>
+                </p>
+                <p>
+                  A simple function that return all list of countries in the array
                 </p>
               </div>
               <div className="card-action">
@@ -45,22 +46,22 @@ export default class index extends Component {
             </div>
           </div>
 
-          <div className="col s8 m4">
-            <div className="card">
+          <div className="col s8 m4 Merg">
+            <div className="card ">
               <div className="card-image">
                 <img src={img4} alt="images of slot machines" />
               </div>
               <div className="card-content">
-              <p><strong>SLOT MACHINE</strong></p>
+                <p>
+                  <strong>SLOT MACHINE</strong>
+                </p>
                 <p>A simple slot machine that spins and return results</p>
               </div>
               <div className="card-action">
-                <Link>Enter</Link>
+              <Link to="/slot">Enter</Link>
               </div>
             </div>
           </div>
-
-         
         </div>
       </div>
     );

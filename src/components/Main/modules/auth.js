@@ -13,7 +13,8 @@ const {
   USER_LOADING,
   USER_CREATED,
   GET_ALL,
-  GET_BY_COUNTRY
+  GET_BY_COUNTRY,
+  WHEEL_DATA
 } = constants;
 
 // Register User
@@ -21,7 +22,7 @@ export const registerUser = (userData, history) => dispatch => {
   console.log(userData);
 
   axios
-    .post("http://localhost:5000/api/register", userData)
+    .post("https://server-yobetit.herokuapp.com/api/register", userData)
     .then(res => {
       if (res.status === 200) {
         history.push("/signin");
@@ -45,7 +46,7 @@ export const registerUser = (userData, history) => dispatch => {
 // Login - get user token
 export const loginUser = userData => dispatch => {
   axios
-    .post("http://localhost:5000/api/login", userData)
+    .post("https://server-yobetit.herokuapp.com/api/login", userData)
     .then(res => {
       // Save to localStorage
 
@@ -95,7 +96,7 @@ export const logoutUser = () => dispatch => {
 // Get all Countries
 export const getAllCountries = () => dispatch => {
   axios
-    .post("http://localhost:5000/api/AllCountries")
+    .post("https://server-yobetit.herokuapp.com/api/AllCountries")
     .then(res => {
       dispatch({
         type: GET_ALL,
@@ -109,19 +110,54 @@ export const getAllCountries = () => dispatch => {
 };
 export const getByCountry = userData => dispatch => {
   axios
-    .post("http://localhost:5000/api/CountryByName", userData)
+    .post("https://server-yobetit.herokuapp.com/api/CountryByName", userData)
     .then(res => {
       dispatch({
         type: GET_BY_COUNTRY,
         payload: res.data
       });
-      // re-direct to login on successful register
-
-      //
     })
     .catch(err => console.log(err));
 };
 
+export const getWheelData = () => dispatch => {
+  const data = {
+    Reel1: [
+      "cherry",
+      "lemon",
+      "apple",
+      "lemon",
+      "banana",
+      "banana",
+      "lemon",
+      "lemon"
+    ],
+    Reel2: [
+      "lemon",
+      "apple",
+      "lemon",
+      "lemon",
+      "cherry",
+      "apple",
+      "banana",
+      "lemon"
+    ],
+    Reel3: [
+      "lemon",
+      "apple",
+      "lemon",
+      "apple",
+      "cherry",
+      "lemon",
+      "banana",
+      "lemon"
+    ]
+  };
+  dispatch({
+    type: WHEEL_DATA,
+    payload: data
+  });
+};
 //===========================
 //Actions handler
 //===========================
@@ -182,6 +218,13 @@ function handleGetByCountry(state, action) {
     }
   });
 }
+function handleGetWheelData(state, action) {
+  return update(state, {
+    wheelData: {
+      $set: action.payload
+    }
+  });
+}
 
 const ACTION_HANDLERS = {
   LOGIN_ERRORS: handleLoginError,
@@ -190,7 +233,8 @@ const ACTION_HANDLERS = {
   USER_LOADING: handleDriverLoading,
   USER_CREATED: handleDriverCreation,
   GET_ALL: handleAllCountries,
-  GET_BY_COUNTRY: handleGetByCountry
+  GET_BY_COUNTRY: handleGetByCountry,
+  WHEEL_DATA: handleGetWheelData
 };
 
 const initialState = {

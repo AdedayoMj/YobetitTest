@@ -1,0 +1,60 @@
+.spinner {
+  margin-left: 385px;
+
+  }
+  .alignCard{
+    margin-left: 220px;
+    margin-top: 50px;
+  }
+  .text{
+  
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .texts{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .coin{
+    color: red;
+  }
+  .btnSpin{
+    margin-top: 10px;
+  }
+  .textResult{
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+  }
+  .alignCard{
+    margin-left:200px
+  }
+  
+  
+  .marg{
+    margin-top: 50px !important;
+    margin-bottom: 20px;
+  }
+  @media screen and (max-width: 1000px) {
+    
+    h4{
+      margin-left: 6em;
+    }
+    .texts{
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      margin-left: -9em;
+    }
+    .textResult{
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: green;
+      margin-left: -180px;
+      margin-bottom:20px;
+    }
+
+}
