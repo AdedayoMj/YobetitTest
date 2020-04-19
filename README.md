@@ -27,4 +27,4 @@ server can be downloaded [here](https://github.com/AdedayoMj/YobetitTestServer)
 
 
 ## Screenshot
-![](screenshots/image1)
+![](screenshots/image1.png)
